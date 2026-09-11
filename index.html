@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEN — Fale agora com nosso time no WhatsApp</title>
+<meta name="description" content="Atendimento rápido, humano e inteligente. Fale agora com Luis Eduardo e nosso time de vendas pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green: #25D366;
+    --green-dark: #128C7E;
+    --green-darker: #075E54;
+    --bg: #0b1114;
+    --bg-soft: #101820;
+    --card: #141d24;
+    --card-2: #182029;
+    --text: #f4f7f6;
+    --text-dim: #aab7bd;
+    --border: rgba(255,255,255,0.08);
+    --shadow: 0 20px 50px rgba(0,0,0,0.35);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Poppins', sans-serif; line-height:1.2;}
+  a{text-decoration:none; color:inherit;}
+  img{display:block; max-width:100%;}
+  .container{width:100%; max-width:1180px; margin:0 auto; padding:0 24px;}
+  section{padding:88px 0;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    background: rgba(37,211,102,0.12);
+    border:1px solid rgba(37,211,102,0.3);
+    color:var(--green);
+    font-weight:600; font-size:13px;
+    padding:7px 16px; border-radius:999px;
+    letter-spacing:.3px;
+    margin-bottom:20px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--green); box-shadow:0 0 0 4px rgba(37,211,102,0.25); animation: pulse 1.8s infinite;}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,0.5);}
+    70%{box-shadow:0 0 0 8px rgba(37,211,102,0);}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background: rgba(11,17,20,0.75);
+    backdrop-filter: blur(14px);
+    border-bottom:1px solid var(--border);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; max-width:1180px; margin:0 auto;
+  }
+  .logo{display:flex; align-items:center; gap:10px; font-family:'Poppins',sans-serif; font-weight:800; font-size:22px;}
+  .logo-badge{
+    width:38px;height:38px;border-radius:11px;
+    background:linear-gradient(135deg, var(--green), var(--green-darker));
+    display:flex;align-items:center;justify-content:center; font-size:18px; color:#fff;
+    box-shadow: 0 6px 16px rgba(37,211,102,0.35);
+  }
+  .nav-links{display:flex; gap:32px; font-size:15px; color:var(--text-dim); font-weight:500;}
+  .nav-links a:hover{color:#fff;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:13px 24px; border-radius:12px;
+    font-weight:600; font-size:15px;
+    cursor:pointer; border:none;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background: linear-gradient(135deg, #2be07a, var(--green));
+    color:#062b1c;
+    box-shadow: 0 10px 30px rgba(37,211,102,0.35);
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(37,211,102,0.5);}
+  .btn-ghost{
+    background: rgba(255,255,255,0.06);
+    color:#fff; border:1px solid var(--border);
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,0.1);}
+  .nav-cta{display:flex; align-items:center; gap:14px;}
+  .burger{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:170px 0 100px;
+    position:relative;
+    background:
+      radial-gradient(700px 380px at 85% -10%, rgba(37,211,102,0.18), transparent 60%),
+      radial-gradient(600px 400px at 5% 10%, rgba(18,140,126,0.16), transparent 60%);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.1fr 0.9fr; gap:56px; align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(34px, 5vw, 58px);
+    font-weight:800;
+    letter-spacing:-1px;
+    margin-bottom:22px;
+  }
+  .hero h1 span{
+    background:linear-gradient(135deg, #2be07a, #7cf7b0);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p.lead{
+    font-size:18px; color:var(--text-dim); max-width:520px; margin-bottom:34px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px;}
+  .btn-lg{padding:17px 28px; font-size:16.5px; border-radius:14px;}
+
+  .trust-row{display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+  .avatars-stack{display:flex;}
+  .av{overflow:hidden; flex-shrink:0; display:block;}
+  .av svg{width:100%; height:100%; display:block;}
+  .avatars-stack .av{
+    width:40px;height:40px;border-radius:50%;
+    border:3px solid var(--bg);
+    margin-left:-12px; background:#1a242c;
+  }
+  .avatars-stack .av:first-child{margin-left:0;}
+  .trust-text{font-size:14px; color:var(--text-dim);}
+  .trust-text b{color:#fff;}
+  .stars{color:#ffc94d; letter-spacing:2px; font-size:15px;}
+
+  .hero-card{
+    background: linear-gradient(180deg, var(--card), var(--card-2));
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:22px;
+    box-shadow: var(--shadow);
+    position:relative;
+  }
+  .chat-window{border-radius:16px; overflow:hidden; background:#0c1a17;}
+  .chat-header{
+    background: var(--green-darker);
+    padding:14px 16px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .chat-header .av{width:42px;height:42px;border-radius:50%; border:2px solid rgba(255,255,255,0.25);}
+  .chat-header .name{font-weight:700; font-size:15px;}
+  .chat-header .status{font-size:12.5px; color:#d6f5e6; display:flex; align-items:center; gap:6px;}
+  .chat-header .status::before{content:""; width:7px;height:7px;border-radius:50%; background:#4be27a; display:inline-block;}
+  .chat-body{
+    padding:18px 16px; min-height:260px;
+    background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 14px 14px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .bubble{
+    max-width:80%; padding:10px 14px; border-radius:14px; font-size:14px;
+    animation: fadeUp .5s ease both;
+  }
+  .bubble.in{background:#1f2c31; align-self:flex-start; border-bottom-left-radius:4px; color:#e9efef;}
+  .bubble.out{background:#005c4b; align-self:flex-end; border-bottom-right-radius:4px; color:#e8fff4;}
+  .bubble small{display:block; margin-top:5px; font-size:10.5px; color:rgba(255,255,255,0.55); text-align:right;}
+  @keyframes fadeUp{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+  .chat-footer{
+    padding:14px 16px; border-top:1px solid rgba(255,255,255,0.06);
+    display:flex; align-items:center; gap:10px;
+  }
+  .chat-footer .fake-input{
+    flex:1; background:#0f1c19; border-radius:22px; padding:11px 16px; color:var(--text-dim); font-size:13.5px;
+  }
+  .chat-footer .send{
+    width:40px;height:40px;border-radius:50%; background:var(--green);
+    display:flex;align-items:center;justify-content:center; flex-shrink:0;
+  }
+
+  /* ---------- LOGOS / STATS ---------- */
+  .stats-bar{
+    border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    background: var(--bg-soft);
+  }
+  .stats-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center; padding:36px 0;
+  }
+  .stats-grid .num{font-family:'Poppins',sans-serif; font-size:32px; font-weight:800; color:var(--green);}
+  .stats-grid .lbl{font-size:13.5px; color:var(--text-dim); margin-top:4px;}
+
+  /* ---------- SECTION HEAD ---------- */
+  .sec-head{text-align:center; max-width:640px; margin:0 auto 54px;}
+  .sec-head h2{font-size:clamp(28px,3.4vw,40px); font-weight:800; margin-bottom:14px;}
+  .sec-head p{color:var(--text-dim); font-size:16.5px;}
+
+  /* ---------- BENEFITS ---------- */
+  .benefits-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .b-card{
+    background:var(--card); border:1px solid var(--border); border-radius:18px;
+    padding:30px 26px; transition: transform .2s ease, border-color .2s ease;
+  }
+  .b-card:hover{transform:translateY(-6px); border-color:rgba(37,211,102,0.35);}
+  .b-icon{
+    width:52px;height:52px;border-radius:14px;
+    background:linear-gradient(135deg, rgba(37,211,102,0.25), rgba(18,140,126,0.15));
+    display:flex;align-items:center;justify-content:center; margin-bottom:18px; color:var(--green);
+  }
+  .b-card h3{font-size:18px; margin-bottom:10px;}
+  .b-card p{color:var(--text-dim); font-size:14.5px;}
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; position:relative;}
+  .step{position:relative; padding:30px 24px; background:var(--card); border:1px solid var(--border); border-radius:18px;}
+  .step .num{
+    width:38px;height:38px;border-radius:50%; background:var(--green); color:#06301f; font-weight:800;
+    display:flex;align-items:center;justify-content:center; margin-bottom:16px; font-family:'Poppins',sans-serif;
+  }
+  .step h3{font-size:17px; margin-bottom:8px;}
+  .step p{color:var(--text-dim); font-size:14.5px;}
+
+  /* ---------- TEAM ---------- */
+  .team-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  .team-card{
+    background:var(--card); border:1px solid var(--border); border-radius:18px; overflow:hidden;
+    text-align:center; transition:transform .2s ease, border-color .2s ease; position:relative;
+  }
+  .team-card.lead{border-color:rgba(37,211,102,0.45); box-shadow:0 0 0 1px rgba(37,211,102,0.15) inset;}
+  .team-card:hover{transform:translateY(-6px);}
+  .team-photo{
+    background:linear-gradient(160deg, #16302a, #0f1c19);
+    padding:26px 0 14px; position:relative;
+  }
+  .team-photo .av{width:104px;height:104px;border-radius:50%; margin:0 auto; border:3px solid rgba(37,211,102,0.5); background:#0c1a17;}
+  .ai-tag{
+    position:absolute; top:12px; right:12px; background:rgba(37,211,102,0.15); border:1px solid rgba(37,211,102,0.4);
+    color:var(--green); font-size:10.5px; font-weight:700; padding:4px 9px; border-radius:999px; letter-spacing:.4px;
+  }
+  .team-info{padding:16px 14px 22px;}
+  .team-info h4{font-size:16px; margin-bottom:3px;}
+  .team-info .role{font-size:12.5px; color:var(--green); font-weight:600; margin-bottom:10px;}
+  .team-info .online{font-size:12px; color:var(--text-dim); display:flex; align-items:center; justify-content:center; gap:6px;}
+  .team-info .online::before{content:""; width:7px;height:7px;background:#4be27a;border-radius:50%;}
+  .team-wa{
+    margin-top:14px; display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600;
+    color:#0d1f18; background:var(--green); padding:8px 14px; border-radius:10px;
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-wrap{overflow:hidden; position:relative; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);}
+  .testi-track{display:flex; gap:20px; width:max-content; animation: scroll-left 42s linear infinite;}
+  .testi-wrap:hover .testi-track{animation-play-state: paused;}
+  @keyframes scroll-left{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  .t-card{
+    width:330px; flex-shrink:0; background:var(--card); border:1px solid var(--border);
+    border-radius:18px; padding:24px;
+  }
+  .t-top{display:flex; align-items:center; gap:12px; margin-bottom:14px;}
+  .t-top .av{width:44px;height:44px;border-radius:50%; background:#1a242c;}
+  .t-name{font-weight:700; font-size:14.5px;}
+  .t-loc{font-size:12px; color:var(--text-dim);}
+  .t-stars{color:#ffc94d; font-size:14px; margin-bottom:10px;}
+  .t-text{font-size:14px; color:#d7dfe0;}
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:760px; margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--border); padding:20px 4px;}
+  .faq-q{display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-size:16px;}
+  .faq-q .plus{color:var(--green); font-size:20px; transition:transform .25s ease; flex-shrink:0; margin-left:14px;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease; color:var(--text-dim); font-size:14.5px;}
+  .faq-item.open .faq-a{max-height:200px; margin-top:12px;}
+
+  /* ---------- FINAL CTA ---------- */
+  .final-cta{
+    background: linear-gradient(135deg, var(--green-darker), var(--green-dark) 60%, var(--green));
+    border-radius:28px; padding:64px 40px; text-align:center; position:relative; overflow:hidden;
+    margin:0 24px;
+  }
+  .final-cta::before{
+    content:""; position:absolute; inset:0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size:20px 20px; opacity:.25;
+  }
+  .final-cta > *{position:relative; z-index:1;}
+  .final-cta h2{font-size:clamp(26px,3.6vw,38px); margin-bottom:14px;}
+  .final-cta p{color:rgba(255,255,255,0.9); max-width:520px; margin:0 auto 30px; font-size:16px;}
+  .final-cta .btn-primary{background:#fff; color:var(--green-darker); box-shadow:0 14px 34px rgba(0,0,0,0.25);}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:50px 0 30px; border-top:1px solid var(--border); margin-top:40px;}
+  .foot-grid{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
+  .foot-links{display:flex; gap:24px; font-size:14px; color:var(--text-dim);}
+  .foot-note{font-size:13px; color:#6b7780; margin-top:24px; text-align:center;}
+
+  /* ---------- FLOATING WHATSAPP ---------- */
+  .wa-float{
+    position:fixed; bottom:24px; right:24px; z-index:200;
+    display:flex; align-items:center; gap:10px;
+  }
+  .wa-float .bubble-tip{
+    background:#fff; color:#111; font-size:13.5px; font-weight:600; padding:10px 14px; border-radius:12px;
+    box-shadow:0 10px 24px rgba(0,0,0,0.25);
+    animation: floatTip 3s ease-in-out infinite;
+  }
+  @keyframes floatTip{0%,100%{transform:translateY(0);} 50%{transform:translateY(-4px);}}
+  .wa-float .fab{
+    width:62px;height:62px;border-radius:50%;
+    background: var(--green);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow: 0 10px 28px rgba(37,211,102,0.55);
+    position:relative;
+  }
+  .wa-float .fab::after{
+    content:""; position:absolute; inset:0; border-radius:50%;
+    border:2px solid var(--green); animation: ring 2s infinite;
+  }
+  @keyframes ring{0%{transform:scale(1); opacity:.7;} 100%{transform:scale(1.6); opacity:0;}}
+  .wa-float .fab svg{width:30px;height:30px;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .benefits-grid{grid-template-columns:repeat(2,1fr);}
+    .steps{grid-template-columns:1fr;}
+    .team-grid{grid-template-columns:repeat(2,1fr);}
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .nav-links{display:none;}
+  }
+  @media (max-width:600px){
+    section{padding:64px 0;}
+    .benefits-grid{grid-template-columns:1fr;}
+    .team-grid{grid-template-columns:repeat(2,1fr);}
+    .hero{padding:140px 0 70px;}
+    .final-cta{padding:44px 22px; margin:0 16px;}
+    .wa-float .bubble-tip{display:none;}
+    .hero-ctas .btn{width:100%; justify-content:center;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo"><div class="logo-badge">N</div> NEN</div>
+    <div class="nav-links">
+      <a href="#beneficios">Benefícios</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#faq">Dúvidas</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-primary" id="nav-wa-btn" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.02c-.24.68-1.4 1.31-1.94 1.36-.5.05-1.02.24-3.41-.71-2.88-1.15-4.73-4.06-4.87-4.25-.14-.19-1.17-1.56-1.17-2.98 0-1.42.75-2.11 1.02-2.4.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.15.12.32.02.51-.1.19-.15.31-.3.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.45.29.15.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.15.48.22.55.34.07.13.07.72-.17 1.4Z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Atendimento online agora</div>
+        <h1>Fale com a gente <span>no WhatsApp</span> e resolva agora mesmo</h1>
+        <p class="lead">Tire suas dúvidas, peça um orçamento ou feche negócio direto com nosso time de vendas. Resposta rápida, sem enrolação — em menos de 2 minutos.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary btn-lg wa-link" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.02c-.24.68-1.4 1.31-1.94 1.36-.5.05-1.02.24-3.41-.71-2.88-1.15-4.73-4.06-4.87-4.25-.14-.19-1.17-1.56-1.17-2.98 0-1.42.75-2.11 1.02-2.4.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.15.12.32.02.51-.1.19-.15.31-.3.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.45.29.15.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.15.48.22.55.34.07.13.07.72-.17 1.4Z"/></svg>
+            Chamar no WhatsApp agora
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#equipe">Conhecer o time</a>
+        </div>
+        <div class="trust-row">
+          <div class="avatars-stack">
+            <span class="av" data-person="LuisEduardo" role="img" aria-label="Luis Eduardo"></span>
+            <span class="av" data-person="MarianaSuporte" role="img" aria-label="Atendente"></span>
+            <span class="av" data-person="RafaelVendas" role="img" aria-label="Atendente"></span>
+            <span class="av" data-person="CamilaCS" role="img" aria-label="Atendente"></span>
+          </div>
+          <div class="trust-text">
+            <div class="stars">★★★★★</div>
+            <span><b>4.9/5</b> · +2.300 atendimentos concluídos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="chat-window">
+          <div class="chat-header">
+            <span class="av" data-person="LuisEduardo" role="img" aria-label="Luis Eduardo"></span>
+            <div>
+              <div class="name">Luis Eduardo</div>
+              <div class="status">online agora</div>
+            </div>
+          </div>
+          <div class="chat-body">
+            <div class="bubble in">Olá! 👋 Sou o Luis Eduardo, do time de vendas. Como posso te ajudar hoje?<small>09:41</small></div>
+            <div class="bubble out">Oi! Queria saber mais sobre os planos<small>09:41 ✓✓</small></div>
+            <div class="bubble in">Perfeito! Consigo te enviar valores e condições agora mesmo, sem compromisso 😉<small>09:42</small></div>
+            <div class="bubble out">Show, pode mandar!<small>09:42 ✓✓</small></div>
+          </div>
+          <div class="chat-footer">
+            <div class="fake-input">Digite sua mensagem...</div>
+            <div class="send">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#062b1c"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="container stats-grid">
+      <div><div class="num">2min</div><div class="lbl">Tempo médio de resposta</div></div>
+      <div><div class="num">4.9★</div><div class="lbl">Avaliação dos clientes</div></div>
+      <div><div class="num">2.300+</div><div class="lbl">Atendimentos realizados</div></div>
+      <div><div class="num">24/7</div><div class="lbl">Disponibilidade online</div></div>
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <section id="beneficios">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Por que falar com a gente pelo WhatsApp?</h2>
+        <p>Atendimento direto, sem formulários chatos e sem espera. É só chamar.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="b-card">
+          <div class="b-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8Z"/></svg></div>
+          <h3>Resposta rápida</h3>
+          <p>Nosso time responde em minutos, sem robôs enrolando você — atendimento de verdade.</p>
+        </div>
+        <div class="b-card">
+          <div class="b-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-9.5-8.5C.5 8 2.5 4 6.5 4c2 0 3.5 1.5 4 2.5.5-1 2-2.5 4-2.5 4 0 6 4 6 8.5C18 16.65 12 21 12 21Z"/></svg></div>
+          <h3>Atendimento humano</h3>
+          <p>Consultores de verdade prontos para entender sua necessidade e indicar a melhor solução.</p>
+        </div>
+        <div class="b-card">
+          <div class="b-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Sem compromisso</h3>
+          <p>Tire dúvidas e peça orçamento sem pressão. Você decide o próximo passo.</p>
+        </div>
+        <div class="b-card">
+          <div class="b-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></div>
+          <h3>Suporte com IA</h3>
+          <p>Tecnologia que agiliza seu atendimento nos bastidores, sempre com supervisão humana.</p>
+        </div>
+        <div class="b-card">
+          <div class="b-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
+          <h3>Horário flexível</h3>
+          <p>Fale com a gente quando for melhor pra você. Estamos por perto o dia todo.</p>
+        </div>
+        <div class="b-card">
+          <div class="b-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a4 4 0 0 0 4-4V5a4 4 0 0 0-8 0v6a4 4 0 0 0 4 4Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 19v3"/></svg></div>
+          <h3>Fale por voz ou texto</h3>
+          <p>Prefere mandar áudio? Sem problema, atendemos do jeito que for mais fácil pra você.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="como-funciona" style="background:var(--bg-soft); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Como funciona</h2>
+        <p>Três passos simples para falar com nosso time agora.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Clique no botão do WhatsApp</h3>
+          <p>Toque em "Falar no WhatsApp" e o chat já abre pronto, com sua mensagem preenchida.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Converse com o Luis Eduardo</h3>
+          <p>Conte o que você precisa. Ele (ou alguém do time) te responde na hora.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Resolva tudo por lá</h3>
+          <p>Orçamento, dúvidas ou fechamento — tudo direto na conversa, sem burocracia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="equipe">
+    <div class="container">
+      <div class="sec-head">
+        <div class="eyebrow" style="margin-bottom:14px;"><span class="dot"></span> Time potencializado por IA</div>
+        <h2>Conheça quem vai te atender</h2>
+        <p>Um time ágil, com apoio de inteligência artificial para responder ainda mais rápido.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card lead">
+          <div class="team-photo">
+            <span class="ai-tag">IA + humano</span>
+            <span class="av" data-person="LuisEduardo" role="img" aria-label="Luis Eduardo"></span>
+          </div>
+          <div class="team-info">
+            <h4>Luis Eduardo</h4>
+            <div class="role">Especialista em Vendas</div>
+            <div class="online">Online agora</div>
+            <a class="team-wa wa-link" target="_blank" rel="noopener">Chamar no zap</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">
+            <span class="ai-tag">IA</span>
+            <span class="av" data-person="MarianaSuporte" role="img" aria-label="Mariana"></span>
+          </div>
+          <div class="team-info">
+            <h4>Mariana Alves</h4>
+            <div class="role">Suporte ao Cliente</div>
+            <div class="online">Online agora</div>
+            <a class="team-wa wa-link" target="_blank" rel="noopener">Chamar no zap</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">
+            <span class="ai-tag">IA</span>
+            <span class="av" data-person="RafaelVendas" role="img" aria-label="Rafael"></span>
+          </div>
+          <div class="team-info">
+            <h4>Rafael Souza</h4>
+            <div class="role">Consultor Comercial</div>
+            <div class="online">Online agora</div>
+            <a class="team-wa wa-link" target="_blank" rel="noopener">Chamar no zap</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">
+            <span class="ai-tag">IA</span>
+            <span class="av" data-person="CamilaCS" role="img" aria-label="Camila"></span>
+          </div>
+          <div class="team-info">
+            <h4>Camila Ribeiro</h4>
+            <div class="role">Pós-venda</div>
+            <div class="online">Online agora</div>
+            <a class="team-wa wa-link" target="_blank" rel="noopener">Chamar no zap</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="depoimentos" style="background:var(--bg-soft); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Quem fala com a gente, aprova</h2>
+        <p>Avaliações reais de quem já foi atendido pelo nosso time no WhatsApp.</p>
+      </div>
+    </div>
+    <div class="testi-wrap">
+      <div class="testi-track" id="testi-track"></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Perguntas frequentes</h2>
+        <p>Ainda com dúvidas? Chama a gente no WhatsApp que respondemos na hora.</p>
+      </div>
+      <div class="faq">
+        <div class="faq-item open">
+          <div class="faq-q">O atendimento pelo WhatsApp tem custo? <span class="plus">+</span></div>
+          <div class="faq-a">Não! Conversar com nosso time e tirar dúvidas é 100% gratuito e sem compromisso.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Qual o horário de atendimento? <span class="plus">+</span></div>
+          <div class="faq-a">Nosso time responde durante todo o dia. Fora do horário comercial, a IA já inicia o atendimento até um consultor assumir a conversa.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Posso falar diretamente com o Luis Eduardo? <span class="plus">+</span></div>
+          <div class="faq-a">Sim! Ao clicar em qualquer botão do WhatsApp nesta página, sua conversa é direcionada para o time de vendas, com o Luis Eduardo à frente do atendimento.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Preciso preencher algum formulário antes? <span class="plus">+</span></div>
+          <div class="faq-a">Não. É só clicar no botão e o WhatsApp abre direto com a conversa pronta para começar.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section>
+    <div class="final-cta">
+      <h2>Pronto para falar com a gente?</h2>
+      <p>Chame agora o Luis Eduardo e nosso time de vendas no WhatsApp. Resposta rápida, sem enrolação.</p>
+      <a class="btn btn-primary btn-lg wa-link" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.02c-.24.68-1.4 1.31-1.94 1.36-.5.05-1.02.24-3.41-.71-2.88-1.15-4.73-4.06-4.87-4.25-.14-.19-1.17-1.56-1.17-2.98 0-1.42.75-2.11 1.02-2.4.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.15.12.32.02.51-.1.19-.15.31-.3.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.45.29.15.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.15.48.22.55.34.07.13.07.72-.17 1.4Z"/></svg>
+        Chamar no WhatsApp agora
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="logo"><div class="logo-badge">N</div> NEN</div>
+      <div class="foot-links">
+        <a href="#beneficios">Benefícios</a>
+        <a href="#equipe">Equipe</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#faq">Dúvidas</a>
+      </div>
+      <a class="btn btn-ghost wa-link" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.02c-.24.68-1.4 1.31-1.94 1.36-.5.05-1.02.24-3.41-.71-2.88-1.15-4.73-4.06-4.87-4.25-.14-.19-1.17-1.56-1.17-2.98 0-1.42.75-2.11 1.02-2.4.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.15.12.32.02.51-.1.19-.15.31-.3.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.45.29.15.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.15.48.22.55.34.07.13.07.72-.17 1.4Z"/></svg>
+        (34) 9 9824-1662
+      </a>
+    </div>
+    <div class="foot-note">© 2026 NEN. Todos os direitos reservados. Atendimento via WhatsApp de segunda a domingo.</div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<div class="wa-float">
+  <div class="bubble-tip">Fale com a gente 👋</div>
+  <a class="fab wa-link" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.02c-.24.68-1.4 1.31-1.94 1.36-.5.05-1.02.24-3.41-.71-2.88-1.15-4.73-4.06-4.87-4.25-.14-.19-1.17-1.56-1.17-2.98 0-1.42.75-2.11 1.02-2.4.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.15.12.32.02.51-.1.19-.15.31-.3.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.45.29.15.46.12.63-.07.17-.19.72-.84.92-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.15.48.22.55.34.07.13.07.72-.17 1.4Z"/></svg>
+  </a>
+</div>
+
+<script>
+  // ---- WhatsApp link setup ----
+  const PHONE = "5534998241662";
+  const MSG = "Olá! Vim pelo site e quero falar com o time de vendas.";
+  const waHref = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(MSG);
+  document.querySelectorAll(".wa-link, #nav-wa-btn").forEach(el => el.setAttribute("href", waHref));
+
+  // ---- Inline avatar generators (no external requests, always render) ----
+  function hashSeed(seed){
+    let h = 0;
+    for (const c of String(seed)) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+    return h;
+  }
+  function personAvatar(seed){
+    const pairs = [
+      ["#1f6f5c","#25D366"], ["#0f3d3a","#2be07a"], ["#123a33","#4be27a"],
+      ["#173229","#34e08a"], ["#0e2e28","#22c98f"], ["#1a3b30","#3fdc8f"]
+    ];
+    const h = hashSeed(seed);
+    const [c1, c2] = pairs[h % pairs.length];
+    const gid = "g" + h;
+    return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img">
+      <defs><linearGradient id="${gid}" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/>
+      </linearGradient></defs>
+      <rect width="100" height="100" fill="url(#${gid})"/>
+      <circle cx="50" cy="38" r="17" fill="rgba(255,255,255,0.95)"/>
+      <path d="M16 102c0-22 15-36 34-36s34 14 34 36" fill="rgba(255,255,255,0.95)"/>
+    </svg>`;
+  }
+  function initialsAvatar(name, seed){
+    const palette = ["#25D366","#128C7E","#0ea5e9","#f59e0b","#ec4899","#8b5cf6","#14b8a6","#ef4444"];
+    const h = hashSeed(seed || name);
+    const bg = palette[h % palette.length];
+    const initials = name.split(" ").filter(Boolean).map(w => w[0]).slice(0,2).join("").toUpperCase();
+    return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img">
+      <rect width="100" height="100" fill="${bg}"/>
+      <text x="50" y="60" font-family="Poppins, sans-serif" font-size="36" font-weight="700" fill="#fff" text-anchor="middle">${initials}</text>
+    </svg>`;
+  }
+
+  // ---- Testimonials data ----
+  const testimonials = [
+    {name:"Juliana Martins", loc:"Uberlândia, MG", text:"Atendimento rapidíssimo! Falei com o Luis Eduardo no WhatsApp e em minutos já tinha minha resposta. Recomendo demais.", seed:"Juliana"},
+    {name:"Carlos Eduardo", loc:"Belo Horizonte, MG", text:"Nunca vi um time responder tão rápido. Tirei todas as dúvidas sem precisar esperar nem preencher formulário chato.", seed:"Carlos"},
+    {name:"Fernanda Lima", loc:"Uberaba, MG", text:"Super atenciosos! O pessoal do suporte resolveu meu problema na hora, direto pelo zap. Nota 10.", seed:"Fernanda"},
+    {name:"Ricardo Alves", loc:"Patos de Minas, MG", text:"Fechei negócio em menos de 10 minutos de conversa. Atendimento humano, sem enrolação.", seed:"Ricardo"},
+    {name:"Beatriz Souza", loc:"Araguari, MG", text:"Gostei muito da agilidade. Perguntei, respondi e já saí satisfeita com a solução.", seed:"Beatriz"},
+    {name:"Marcos Paulo", loc:"Ituiutaba, MG", text:"Melhor experiência de atendimento que já tive. O Luis Eduardo foi super prestativo do início ao fim.", seed:"Marcos"},
+    {name:"Larissa Dias", loc:"Araxá, MG", text:"Simples, rápido e direto ao ponto. Chamei no WhatsApp e em poucos minutos já estava tudo resolvido.", seed:"Larissa"},
+    {name:"Gustavo Pereira", loc:"Uberlândia, MG", text:"Equipe muito preparada. Respondem rápido e explicam tudo com clareza. Virei cliente na hora.", seed:"Gustavo"}
+  ];
+  function starRow(){return "★★★★★";}
+  function card(t){
+    return `<div class="t-card">
+      <div class="t-top">
+        <span class="av" role="img" aria-label="${t.name}">${initialsAvatar(t.name, t.seed)}</span>
+        <div><div class="t-name">${t.name}</div><div class="t-loc">${t.loc}</div></div>
+      </div>
+      <div class="t-stars">${starRow()}</div>
+      <p class="t-text">"${t.text}"</p>
+    </div>`;
+  }
+  const track = document.getElementById("testi-track");
+  const doubled = [...testimonials, ...testimonials];
+  track.innerHTML = doubled.map(card).join("");
+
+  // ---- Populate team/hero AI avatars ----
+  document.querySelectorAll("[data-person]").forEach(el => {
+    el.innerHTML = personAvatar(el.dataset.person);
+  });
+
+  // ---- FAQ accordion ----
+  document.querySelectorAll(".faq-item").forEach(item => {
+    item.querySelector(".faq-q").addEventListener("click", () => {
+      const wasOpen = item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("open"));
+      if(!wasOpen) item.classList.add("open");
+    });
+  });
+</script>
+
+</body>
+</html>
